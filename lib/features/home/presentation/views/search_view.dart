@@ -11,12 +11,15 @@ class SearchView extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.max,
           children: [
             SizedBox(height: 24.0),
             CustomTextField(),
             Spacer(),
-            SizedBox(height: 300, child: SvgPicture.asset('assets/search.svg')),
+            AspectRatio(
+              aspectRatio: 1496 / 1067,
+              child: SvgPicture.asset('assets/search.svg'),
+            ),
             Spacer(),
           ],
         ),
