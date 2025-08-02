@@ -7,11 +7,20 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       decoration: InputDecoration(
-        border: OutlineInputBorder(),
-        labelText: 'Search for movies',
-        prefixIcon: Icon(Icons.search),
+        hintText: 'Search for movies',
+        border: buildBorder(),
+        focusedBorder: buildBorder(Color(0xffFFCC00)),
+        enabledBorder: buildBorder(),
+        suffixIcon: IconButton(onPressed: () {}, icon: Icon(Icons.search)),
       ),
       style: TextStyle(fontSize: 16),
+    );
+  }
+
+  OutlineInputBorder buildBorder([Color? color]) {
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(12.0),
+      borderSide: BorderSide(color: color ?? Colors.black),
     );
   }
 }
