@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:movies_app/core/api/api_constants.dart';
 import 'package:movies_app/features/home/models/movie_model.dart';
 
@@ -17,7 +18,8 @@ class MovieItem extends StatelessWidget {
           child: CachedNetworkImage(
             imageUrl: ApiConstants.imageUrl + (movie.image ?? ''),
             fit: BoxFit.fitHeight,
-            placeholder: (context, url) => CircularProgressIndicator(),
+            placeholder: (context, url) =>
+                LottieBuilder.asset('assets/loading.json', width: 50),
             errorWidget: (context, url, error) => Icon(Icons.error),
           ),
         ),
