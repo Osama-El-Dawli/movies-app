@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:movies_app/features/home/presentation/views/home_view.dart';
+import 'package:movies_app/features/home/views/home_view.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});

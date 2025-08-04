@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/features/home/presentation/views/search_view.dart';
-import 'package:movies_app/features/home/presentation/views/watch_list_view.dart';
+import 'package:movies_app/features/home/views/search_view.dart';
+import 'package:movies_app/features/home/views/watch_list_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -23,6 +23,16 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: _currentIndex == 1
+          ? AppBar(
+              title: Text(
+                'Watch List',
+                style: TextStyle(fontWeight: FontWeight.w500),
+              ),
+              elevation: 0,
+              backgroundColor: Colors.white,
+            )
+          : null,
       body: _views[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
