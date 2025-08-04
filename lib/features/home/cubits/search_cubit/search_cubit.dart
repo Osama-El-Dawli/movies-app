@@ -21,12 +21,14 @@ class SearchCubit extends Cubit<SearchState> {
         ApiConstants.apiKey,
       );
 
-      emit(SearchSuccess(movies: response.results));
-    } on DioException catch (e) {
+      emit(SearchSuccess(movies: response.results ?? []));
+    }
+     on DioException catch (e) {
       final apiError = ApiError.fromDioError(e);
       emit(SearchFailure(error: apiError.message));
-    } catch (e) {
-      emit(SearchFailure(error: 'An unexpected error occurred'));
+    }
+    catch (e) {
+      emit(SearchFailure(error: e.toString()));
     }
   }
 }

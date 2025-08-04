@@ -15,20 +15,20 @@ class MovieItem extends StatelessWidget {
         leading: ClipRRect(
           borderRadius: BorderRadius.circular(8),
           child: CachedNetworkImage(
-            imageUrl: ApiConstants.imageUrl + movie.image,
+            imageUrl: ApiConstants.imageUrl + (movie.image ?? ''),
             fit: BoxFit.fitHeight,
             placeholder: (context, url) => CircularProgressIndicator(),
             errorWidget: (context, url, error) => Icon(Icons.error),
           ),
         ),
         title: Text(
-          movie.title,
+          movie.title ?? '',
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
         ),
         subtitle: Text(
-          movie.subTitle,
+          movie.subTitle ?? '',
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
         ),

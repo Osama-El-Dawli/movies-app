@@ -4,7 +4,7 @@ part 'movie_model.g.dart';
 
 @JsonSerializable()
 class ModelResponse {
-  final List<MovieModel> results;
+  final List<MovieModel>? results;
 
   ModelResponse({required this.results});
 
@@ -14,11 +14,11 @@ class ModelResponse {
 
 @JsonSerializable()
 class MovieModel {
-  final String title;
+  final String? title;
   @JsonKey(name: 'overview')
-  final String subTitle;
+  final String? subTitle;
   @JsonKey(name: 'poster_path')
-  final String image;
+  final String? image;
   @JsonKey(includeFromJson: false)
   final bool isBookmarked;
 
