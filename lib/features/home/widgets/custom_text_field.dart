@@ -7,16 +7,25 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String searchQuery = '';
     return TextField(
       onSubmitted: (value) {
         context.read<SearchCubit>().searchMovies(value);
+      },
+      onChanged: (value) {
+        searchQuery = value;
       },
       decoration: InputDecoration(
         hintText: 'Search for movies',
         border: buildBorder(),
         focusedBorder: buildBorder(Color(0xffFFCC00)),
         enabledBorder: buildBorder(),
-        suffixIcon: IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+        suffixIcon: IconButton(
+          onPressed: () {
+            context.read<SearchCubit>().searchMovies(searchQuery);
+          },
+          icon: Icon(Icons.search),
+        ),
       ),
       style: TextStyle(fontSize: 16),
     );

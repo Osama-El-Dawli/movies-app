@@ -17,4 +17,13 @@ MovieModel _$MovieModelFromJson(Map<String, dynamic> json) => MovieModel(
   title: json['title'] as String?,
   subTitle: json['overview'] as String?,
   image: json['poster_path'] as String?,
+  id: json['id'] as int,
 );
+
+Map<String, dynamic> _$MovieModelToMap(MovieModel instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'title': instance.title,
+      'overview': instance.subTitle,
+      'poster_path': instance.image,
+    };
